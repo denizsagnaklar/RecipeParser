@@ -67,18 +67,27 @@ def find_ingredient_name(ing):
     return name
 
 
-# def find_ingredient_descriptor(ingredient_split_list):
-#     # usually the next thing after measurement
-#     # if find_ingredient_measurement(ingredient_split_list) is not "":
-#         # the descriptor is the next thing if the len of list w/o measurement is > 1
-#         return descriptor
+def find_ingredient_descriptor(name):
+    n = name.split()
+    descriptor = ""
+    if len(n) > 1:
+        descriptor = n[0]
+    # if find_ingredient_measurement(ingredient_split_list) is not "":
+        # the descriptor is the next thing if the len of list w/o measurement is > 1
+    return descriptor
+
+
+def print_ingredient(ing):
+        i_name = find_ingredient_name(i)
+        print "NAME:", find_ingredient_name(i)
+        print "QTY:", find_ingredient_quantity(i)
+        print "MSRMNT:",  find_ingredient_measurement(i)
+        print "DESC:", find_ingredient_descriptor(i_name)
+        print "PREP:", find_ingredient_preparation(i),'\n'
 
 for i in ingredients:
     print i
-    print "NAME:", find_ingredient_name(i)
-    print "QTY:", find_ingredient_quantity(i)
-    print "MSRMNT:",  find_ingredient_measurement(i)
-    print "PREP:", find_ingredient_preparation(i),'\n'
+    print_ingredient(i)
 
 #
 # class Ingredient:
